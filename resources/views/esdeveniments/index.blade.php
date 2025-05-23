@@ -73,7 +73,7 @@
                 @endforeach
         @endforeach
     @else
-        <h3 class="text-center text-muted">No tienes ningua reserva</h3>
+        <h3 class="text-center text-muted">No tienes ninguna reserva</h3>
     @endif
         
     </div>

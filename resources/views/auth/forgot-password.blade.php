@@ -1,11 +1,11 @@
-@extends('layouts.guest')
+@extends('layouts.loginMaster')
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+    <div class="row justify-content-center w-100">
+        <div class="col-md-8 justify-content-center d-flex mt-4">
+            <div class="card border-light text-center w-100">
+                <div class="card-header">Restablecer contraseña</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -15,30 +15,27 @@
                     @endif
 
                     <div class="mb-3">
-                        {{ __('Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.') }}                        
+                        Introduce el correo para recuperar la contraseña
                     </div>
 
                     <form method="POST" action="{{ route('password.email') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="from-group">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email') }}</label>
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
 
-                        <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
+                        <div class="form-group">
+                            <div class="col-12 text-center mt-3">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Email Password Reset Link') }}
+                                    Recuperar contraseña
                                 </button>
                             </div>
                         </div>

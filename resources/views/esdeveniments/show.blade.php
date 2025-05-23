@@ -23,6 +23,7 @@
             <p>{{$evento->max_personas - $evento->user()->count()}}</p>
 
             <div class="d-flex flex-wrap gap-2">
+                <a href="{{route('esdeveniments.index')}}" class="btn btn-dark">Volver al inicio</a>
                 @if (Auth::user()->esdeveniments->contains($evento->id))
                     <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Cancelar reserva</button>
 

@@ -23,7 +23,7 @@
             <p>{{$evento->max_personas - $evento->user()->count()}}</p>
 
             <div class="d-flex gap-2">
-                    
+                <a href="{{route('admin.index')}}" class="btn btn-dark">Volver al inicio</a>
                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Eliminar</button>
 
                 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
