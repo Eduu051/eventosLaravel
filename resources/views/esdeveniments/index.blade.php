@@ -77,9 +77,7 @@
     @endif
         
     </div>
-    <h1 class="text-center mt-3">HOLA</h1>
-
-    <h1 class="text-center mt-3">EVENTOS DISPONIBLES</h1>
+    <h1 class="text-center mt-3">EVENTOS DISPONIBLES JAJAJ HOOLA</h1>
 
         @foreach ($categorias as $categoria)
             <h3 class="capitalizar-primera">{{$categoria->nombre}}</h3>
