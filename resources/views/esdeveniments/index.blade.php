@@ -77,6 +77,7 @@
     @endif
         
     </div>
+    <h1 class="text-center mt-3">HOLA</h1>
 
     <h1 class="text-center mt-3">EVENTOS DISPONIBLES</h1>
 
