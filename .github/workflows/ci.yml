@@ -91,6 +91,4 @@ jobs:
           type: now 
           from_branch: test
           target_branch: main
-          message: "CI: Auto-merged 'test' into 'main' after successful tests."
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          force: true # Aquest force no és git push --force, sinó que intenta resoldre conflictes
