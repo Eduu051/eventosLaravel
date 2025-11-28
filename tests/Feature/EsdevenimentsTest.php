@@ -46,7 +46,7 @@ class EventosTest extends TestCase
             'category_id' => $categoryId,
         ]);
 
-        $response->assertRedirect('/index/admin');
+        $response->assertRedirect('/index/admin?mensaje=creado');
         $this->assertDatabaseHas('esdeveniments', ['nombre' => 'PlayboiCarti Concert']);
     }
 
