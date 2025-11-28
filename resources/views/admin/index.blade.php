@@ -51,6 +51,7 @@
     @endif
 
     <h1 class="text-center mt-3">EVENTOS DISPONIBLES</h1>
+    <h2 class="text-center mt-3">GITHUB ACTIONS</h2>
 
     @foreach ($categorias as $categoria)
         <h3 class="capitalizar-primera">{{$categoria->nombre}} <a href="{{route('admin.destroyCategoria', ['id'=>$categoria->id])}}" class="btn btn-danger">Eliminar categoria</a></h3>
