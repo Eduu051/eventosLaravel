@@ -85,9 +85,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Merge branch
-        uses: srt32/merge-action@v0.0.1 # Una action per fer el merge
-        with:
-          # Informació de la branca que vols fusionar
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          source_ref: 'test' 
-          target_ref: 'main'
+        run: |
+          git checkout main
+          git merge test
+          git push origin main
