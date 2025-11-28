@@ -66,14 +66,9 @@ jobs:
       - name: Prepare environment
         # El tub '|' indica "multilínia": executarem aquestes comandes, una rere l’altra, al mateix pas.
         run: |
-          # 5.1 Copiem l'exemple d'entorn a .env (a CI no exposem secrets; usem defaults).
           cp .env.example .env
-          # 5.2 Generem l’APP_KEY necessària per a Laravel (encriptació, sessions, etc.).
           php artisan key:generate
-          # 5.3 Creem la base de dades SQLite (fitxer buit). Ideal per a tests en CI.
           touch database/database.sqlite
-          # 5.4 Apliquem migracions perquè les taules existeixin abans de provar.
-          # --force evita que Artisan demani confirmació en entorns no interactius.
           php artisan migrate --force
 
       # Pas 6: executar els tests de Laravel.
