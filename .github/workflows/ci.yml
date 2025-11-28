@@ -76,3 +76,18 @@ jobs:
         # --no-coverage: no calculem cobertura (més ràpid per a una demo bàsica).
         # (Laravel invoca PHPUnit o Pest segons la config del projecte.)
         run: php artisan test --no-coverage
+  
+  #Job #2: Fer merge automàticament de 'test' a 'main' si els tests passen.
+  # Afegeix un nou job després de 'tests'
+  merge:
+    needs: tests # Aquest job només s'executa si 'tests' ha passat
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Merge branch
+        uses: srt32/merge-action@v0.0.1 # Una action per fer el merge
+        with:
+          # Informació de la branca que vols fusionar
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          source_ref: 'test' 
+          target_ref: 'main'
