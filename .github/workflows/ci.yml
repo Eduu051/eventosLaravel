@@ -83,7 +83,7 @@ jobs:
     runs-on: ubuntu-latest
     if: success() && github.ref == 'refs/heads/test'
     
-    # AQUEST PAS ÉS EL CORRECTE
+    # PLEASE FUNCIONA
     steps:
       - name: Merge 'test' into 'main' and push
         uses: devmasx/merge-branch@v1.4.0
