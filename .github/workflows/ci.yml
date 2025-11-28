@@ -78,14 +78,19 @@ jobs:
         run: php artisan test --no-coverage
   
   #Job #2: Fer merge automàticament de 'test' a 'main' si els tests passen.
-  # Afegeix un nou job després de 'tests'
   merge:
-    needs: tests # Aquest job només s'executa si 'tests' ha passat
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-      - name: Merge branch
-        run: |
-          git checkout main
-          git merge test
-          git push origin main
+  needs: tests
+  runs-on: ubuntu-latest
+  if: success() && github.ref == 'refs/heads/test'
+  
+  # AQUEST PAS ÉS EL CORRECTE
+  steps:
+    - name: Merge 'test' into 'main' and push
+      uses: devmasx/merge-branch@v1.4.0
+      with:
+        type: now 
+        from_branch: test
+        target_branch: main
+        message: "CI: Auto-merged 'test' into 'main' after successful tests."
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        force: true # Aquest force no és git push --force, sinó que intenta resoldre conflictes
