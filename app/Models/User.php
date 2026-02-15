@@ -21,8 +21,8 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'fecha_nacimiento',
-        'rol',
+        'fecha_nacimiento|date',
+        'rol|default:admin',
     ];
 
     /**

@@ -50,7 +50,7 @@
         </div>
     @endif
 
-    <h1 class="text-center mt-3">TUS EVENTOS</h1>
+    <h1 class="text-center mt-3">TUS EVENTOS (HOLA)</h1>
     <div class="row mt-4">
     @if (Auth::user()->esdeveniments->count() > 0)
         @foreach ($categorias as $categoria)
@@ -77,7 +77,6 @@
     @endif
         
     </div>
-
     <h1 class="text-center mt-3">EVENTOS DISPONIBLES</h1>
 
         @foreach ($categorias as $categoria)
